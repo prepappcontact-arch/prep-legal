@@ -79,3 +79,113 @@
   .app-icon span:first-child { color: #fff; }
   .app-icon span:last-child { color: var(--blue); }
   .app-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .app-sub {
+    color: var(--muted);
+    margin: 4px 0 20px;
+  }
+  .app-desc {
+    color: #C9CCD6;
+    max-width: 560px;
+    margin: 0 0 28px;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .cta:hover { background: #3f6bed; }
+  .cta .price {
+    opacity: 0.85;
+    font-weight: 400;
+    font-size: 0.85rem;
+  }
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .shots img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+  @media (max-width: 700px) {
+    .shots { grid-template-columns: repeat(2, 1fr); }
+    .app-card { padding: 24px; }
+  }
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer a {
+    color: var(--muted);
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mark"></div>
+    <h1>Soleon Studio</h1>
+    <p class="tagline">Solo-built apps out of Bucharest. First one's below.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="app-card">
+      <div class="app-header">
+        <div class="app-icon"><span>P</span><span>REP</span></div>
+        <div>
+          <p class="app-name">PREP</p>
+        </div>
+      </div>
+      <p class="app-sub">Meal prep planner for people who cook in batches</p>
+      <p class="app-desc">
+        Weigh a cooked batch and PREP works out the portions that hit your calorie and macro targets,
+        including two different targets when two people eat from the same batch. Plus a week planner,
+        recipe builder, shopping list, barcode scanner, and progress charts.
+      </p>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.prepapp.app" target="_blank" rel="noopener">
+        Get it on Google Play
+        <span class="price">· 14-day free trial</span>
+      </a>
+
+      <div class="shots">
+        <img src="02-8-1440x2560.png" alt="PREP portions screen">
+        <img src="01-4-1440x2560.png" alt="PREP recipe builder">
+        <img src="01-5-1440x2560.png" alt="PREP macro tracking">
+        <img src="03-2-1440x2560.png" alt="PREP weight trends">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="mailto:prep.app.contact@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
