@@ -259,6 +259,18 @@
   .footer-links a{text-decoration:none; color:#182E4C; font-weight:600;}
   .footer-links a:hover{color:var(--gold);}
 
+  .footer-badges{
+    border-top:1px solid rgba(27,35,51,0.12);
+    margin-top:28px;
+    padding-top:24px;
+    display:flex;
+    justify-content:flex-start;
+  }
+  .footer-badges img{
+    height:54px;
+    width:auto;
+  }
+
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr; padding-top:48px;}
     .hero-copy{text-align:center; padding-bottom:12px;}
@@ -278,6 +290,7 @@
   @media (max-width:640px){
     .feature-row, .feature-row.reverse{flex-direction:column; align-items:flex-start; text-align:left; gap:18px;}
     .feature-thumb{width:260px; align-self:center;}
+    .footer-badges{justify-content:center;}
   }
   @media (max-width:520px){
     .nav-row{padding:14px 18px;}
@@ -292,6 +305,7 @@
     .badge svg{width:15px; height:15px;}
     .features{padding:40px 18px 48px;}
     .footer-top{flex-direction:column; align-items:flex-start;}
+    .footer-badges img{height:44px;}
   }
 </style>
 </head>
@@ -427,6 +441,11 @@
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
       </div>
+    </div>
+    <div class="footer-badges">
+      <a href="https://fazier.com/launches/soleonstudio.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral" alt="Fazier badge">
+      </a>
     </div>
   </div>
 </footer>
