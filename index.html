@@ -7,23 +7,23 @@
 <meta name="description" content="PREP is a meal prep app for people who cook their food in batches. A meal planner, calorie counter and macro tracker in one app.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Poppins:wght@400;500;600;700;800&family=Quantico:wght@400;700&family=Zen+Dots&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#FFFDF8;
     --ink:#1B2333;
-    --sub:#5B6478;
-    --muted:#8B93A7;
+    --sub:#3D4459;
+    --muted:#666F82;
     --line:#EFE9DC;
 
     --navy:#182E4C;
-    --gold:#B38A47;
-    --gold-bright:#D2AA6C;
-    --gold-soft:rgba(179,138,71,0.14);
+    --gold:#E2703A;
+    --gold-bright:#EC9468;
+    --gold-soft:rgba(226,112,58,0.15);
 
     --blue:#5B8DEF;
 
-    --maxw:1100px;
+    --maxw:1220px;
   }
   *{box-sizing:border-box;}
   body{
@@ -45,143 +45,247 @@
     display:flex; align-items:center; justify-content:space-between;
     padding:20px 24px; max-width:var(--maxw); margin:0 auto;
   }
-  .brand{font-size:19px; font-weight:800; color:var(--ink); text-decoration:none; letter-spacing:-0.01em;}
-  .nav-links{display:flex; align-items:center; gap:24px; font-size:15px;}
-  .nav-links a{text-decoration:none; color:var(--sub); font-weight:500;}
+  .brand{
+    font-family:'Quantico', sans-serif; font-size:24px; font-weight:700;
+    color:var(--ink); text-decoration:none; letter-spacing:-0.01em;
+  }
+  .nav-links{display:flex; align-items:center; gap:26px; font-size:16px;}
+  .nav-links a{
+    font-family:'Quantico', sans-serif; font-weight:700;
+    text-decoration:none; color:var(--sub);
+  }
   .nav-links a.pill{
-    background:var(--gold); color:#fff; padding:10px 20px;
-    border-radius:100px; font-weight:600;
+    background:var(--gold); color:#fff; padding:10px 22px;
+    border-radius:100px; font-weight:700;
   }
 
-  /* hero */
-  .hero{position:relative; padding:64px 24px 20px; text-align:center; overflow:hidden;}
-  .hero::before{
-    content:'';
-    position:absolute; top:-200px; left:50%; width:900px; height:700px;
-    transform:translateX(-50%);
-    background:radial-gradient(ellipse 50% 50% at 50% 40%, var(--gold-soft), transparent 70%);
-    pointer-events:none;
+  /* hero — asymmetric split, not centered */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:0;
+    background:linear-gradient(135deg, #FBEFDD 0%, #FADBC5 30%, #F5D2C0 55%, #E9EDFB 100%);
   }
-  .hero-inner{position:relative; z-index:1; max-width:620px; margin:0 auto;}
-  .hero-lockup{display:flex; align-items:center; justify-content:center; gap:14px;}
-  .hero-lockup img{width:54px; height:54px; border-radius:14px; box-shadow:0 10px 22px rgba(27,35,51,0.18);}
-  .hero h1{font-size:2.9rem; margin:0; font-weight:800; letter-spacing:-0.01em; color:var(--ink);}
-  .hero-desc{font-size:16px; color:var(--sub); margin:20px auto 0; max-width:480px;}
-  .hero-cta{margin:28px 0 0; display:flex; flex-direction:column; align-items:center; gap:9px;}
-  .play-badge{display:inline-block; height:54px;}
+  .hero-grid{
+    position:relative; z-index:1;
+    max-width:1180px; margin:0 auto; padding:76px 24px 48px;
+    display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:center;
+  }
+  .hero-copy{text-align:left; padding-bottom:60px;}
+  .hero-lockup{display:flex; align-items:center; gap:18px;}
+  .hero-lockup img{width:68px; height:68px; border-radius:18px; box-shadow:0 12px 26px rgba(27,35,51,0.2);}
+  .hero h1{
+    font-family:'Zen Dots', sans-serif;
+    font-size:4.4rem; margin:0; font-weight:400; letter-spacing:0.01em; color:var(--ink); line-height:1;
+  }
+  .hero h1 .p-accent{color:var(--blue);}
+  .hero-tagline{
+    font-family:'Zen Dots', sans-serif;
+    font-size:1.15rem; line-height:1.5;
+    margin:18px 0 0; color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .hero-tagline span{color:var(--blue);}
+  .hero-desc{
+    font-family:'Quantico', sans-serif;
+    font-size:15px; color:var(--ink); font-weight:400; margin:22px 0 0; max-width:420px;
+    background:#fff;
+    border:1px solid rgba(27,35,51,0.08);
+    border-radius:18px;
+    padding:20px 22px;
+    box-shadow:0 16px 36px -12px rgba(27,35,51,0.22);
+  }
+  .hero-cta{margin:28px 0 0; display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .play-badge{display:inline-block; height:76px;}
   .play-badge img{height:100%; width:auto;}
-  .cta-fine{font-size:12.5px; color:var(--muted);}
+  .cta-fine{display:flex; flex-direction:column; gap:2px;}
+  .cta-fine .trial{font-size:16px; font-weight:800; color:var(--ink); letter-spacing:-0.01em;}
+  .cta-fine .price{font-size:13px; color:var(--sub); font-weight:500;}
 
-  /* blooming screenshot trio, each a real phone, not a flat card */
+  /* phone stage — staggered, with floating icon badges orbiting it */
   .shot-stage{
     position:relative; z-index:1;
-    height:440px; max-width:640px; margin:56px auto 0;
+    height:520px;
+    width:100%;
+    max-width:560px;
   }
   .shot{
-    position:absolute; top:0; left:50%;
-    width:186px; margin-left:-93px;
-    background:linear-gradient(180deg,#3a3f47,#17191d);
-    border-radius:30px;
+    position:absolute;
+    width:210px;
+    background:linear-gradient(160deg, #4a4f58 0%, #232529 45%, #0d0e10 100%);
+    border-radius:36px;
     padding:9px 7px;
-    box-shadow:0 26px 50px rgba(27,35,51,0.28), 0 0 0 1px rgba(27,35,51,0.06);
+    box-shadow:
+      0 34px 60px -14px rgba(27,35,51,0.4),
+      inset 0 1px 1px rgba(255,255,255,0.12);
+    transition:transform .35s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+    backface-visibility:hidden;
   }
   .shot::before{
     content:'';
-    position:absolute; top:5px; left:50%; transform:translateX(-50%);
-    width:34px; height:4px; border-radius:3px;
+    position:absolute; top:6px; left:50%; transform:translateX(-50%);
+    width:36px; height:5px; border-radius:3px;
     background:rgba(255,255,255,0.18);
   }
-  .shot .screen{border-radius:22px; overflow:hidden;}
+  .shot .screen{border-radius:24px; overflow:hidden;}
   .shot .screen img{width:100%; display:block;}
-  .shot.center{z-index:3;}
+  .shot.center{z-index:3; top:2.7%; left:26%; transform:translate3d(0,0,0);}
   .shot.left{
-    z-index:2; opacity:0.62;
-    transform:translate(-150px, 26px) rotate(-9deg) scale(0.84);
-    -webkit-mask-image:linear-gradient(100deg, black 45%, transparent 95%);
-    mask-image:linear-gradient(100deg, black 45%, transparent 95%);
+    z-index:2; top:5.8%; left:0%; opacity:0.9;
+    transform:translate3d(0,0,0) rotate(-8deg) scale(0.85);
   }
   .shot.right{
-    z-index:2; opacity:0.62;
-    transform:translate(150px, 26px) rotate(9deg) scale(0.84);
-    -webkit-mask-image:linear-gradient(260deg, black 45%, transparent 95%);
-    mask-image:linear-gradient(260deg, black 45%, transparent 95%);
+    z-index:2; top:11.2%; left:44%; opacity:0.94;
+    transform:translate3d(0,0,0) rotate(9deg) scale(0.88);
   }
+  .shot-stage:hover .shot.center{transform:translate3d(0,-6px,0);}
+  .shot-stage:hover .shot.left{transform:translate3d(0,4px,0) rotate(-11deg) scale(0.85);}
+  .shot-stage:hover .shot.right{transform:translate3d(0,-4px,0) rotate(12deg) scale(0.88);}
 
-  /* features */
-  .features{padding:32px 24px 8px;}
-  .features h2{text-align:center; font-size:2rem; margin:0 0 12px; font-weight:800;}
-  .features h2 .accent{color:var(--gold);}
-  .features .lede{
-    text-align:center; color:var(--sub); font-size:15.5px;
-    max-width:520px; margin:0 auto 52px;
-  }
-  .feature-grid{
-    max-width:960px; margin:0 auto;
-    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  }
-  .feature{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:28px 24px;
-  }
-  .feature .icon-wrap{
-    width:52px; height:52px; border-radius:14px;
+  .badge{
+    position:absolute; z-index:4;
+    width:54px; height:54px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    margin-bottom:18px;
+    box-shadow:0 8px 16px rgba(27,35,51,0.25);
+    transform:translate3d(0,0,0);
+    will-change:transform;
+    contain:layout style paint;
   }
-  .feature svg{width:26px; height:26px; stroke-width:2;}
-  .feature h3{font-size:1.1rem; margin:0 0 9px; font-weight:700;}
-  .feature p{margin:0; color:var(--sub); font-size:14.5px;}
-  .f-gold .icon-wrap{background:rgba(179,138,71,0.14);} .f-gold svg{stroke:var(--gold);}
-  .f-blue .icon-wrap{background:rgba(91,141,239,0.12);} .f-blue svg{stroke:var(--blue);}
-  .f-green .icon-wrap{background:rgba(74,222,128,0.14);} .f-green svg{stroke:#22A559;}
+  .js-ready .badge{animation:badge-bob 2.6s ease-in-out infinite;}
+  .badge svg{width:24px; height:24px; stroke-width:2.2; stroke:#fff;}
+  .badge-1{
+    top:2%; right:2%;
+    background:#E2703A;
+    animation-delay:0s;
+  }
+  .badge-2{
+    bottom:26%; left:-1%;
+    background:#5B8DEF;
+    animation-delay:0.5s;
+  }
+  .badge-3{
+    bottom:14%; right:0%;
+    animation-delay:1s;
+    background:#22A559;
+  }
+  @keyframes badge-bob{
+    0%, 100% { transform:translate3d(0,0,0); }
+    50% { transform:translate3d(0,-10px,0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .js-ready .badge{animation:none;}
+  }
 
-  /* narrow callout */
-  .callout{
-    max-width:var(--maxw); margin:56px auto 0; padding:0 24px;
+  /* features — compact grid, 3 across, 2 rows */
+  .features{padding:48px 24px 56px;}
+  .features h2{
+    font-family:'Zen Dots', sans-serif;
+    text-align:center; font-size:1.9rem; margin:0 0 14px; font-weight:400; letter-spacing:0; line-height:1.4;
   }
-  .callout-box{
-    background:var(--navy); border-radius:22px;
-    padding:36px 40px; text-align:center;
+  .features h2 .accent{color:var(--blue);}
+  .features .lede{
+    font-family:'Quantico', sans-serif;
+    text-align:center; color:var(--sub); font-size:15px;
+    max-width:520px; margin:0 auto 40px;
   }
-  .callout-box p{color:#fff; font-size:15.5px; margin:0; line-height:1.7;}
-  .callout-box p strong{color:var(--gold-bright);}
+  .feature-list{
+    max-width:1000px; margin:0 auto;
+    display:flex; flex-direction:column;
+    gap:8px;
+  }
+  .feature-row{
+    display:flex; flex-direction:row; align-items:center; gap:48px;
+    padding:52px 4px;
+    border-bottom:1px solid var(--line);
+  }
+  .feature-row.reverse{flex-direction:row-reverse;}
+  .js-ready .feature-row{
+    opacity:0;
+    transform:translateY(28px);
+  }
+  .feature-row:last-child{border-bottom:none;}
+  .feature-content{flex:1; padding:0 6px;}
+  .feature-row .icon-wrap{
+    width:72px; height:72px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:22px;
+    box-shadow:0 14px 26px -8px rgba(27,35,51,0.35);
+    transition:transform .3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .feature-row:hover .icon-wrap{transform:rotate(-8deg) scale(1.08);}
+  .feature-row svg{width:32px; height:32px; stroke-width:2; stroke:#fff;}
+  .feature-row h3{font-size:1.4rem; margin:0 0 10px; font-weight:700;}
+  .feature-row p{font-family:'Quantico', sans-serif; margin:0; color:var(--sub); font-size:18px; line-height:1.6; max-width:100%;}
+  .f-gold .icon-wrap{background:linear-gradient(140deg, var(--gold-bright), var(--gold));}
+  .f-blue .icon-wrap{background:linear-gradient(140deg, #7BA3F2, var(--blue));}
+  .f-green .icon-wrap{background:linear-gradient(140deg, #8FE0B0, #22A559);}
 
-  /* closing cta */
-  .cta-band{max-width:var(--maxw); margin:64px auto 0; padding:56px 24px; text-align:center;}
-  .cta-band h2{font-size:1.9rem; margin:0 0 10px; font-weight:800;}
-  .cta-band p{color:var(--sub); margin:0 0 26px; font-size:15.5px;}
+  .feature-thumb{
+    flex-shrink:0;
+    width:300px;
+    background:linear-gradient(160deg, #4a4f58 0%, #232529 45%, #0d0e10 100%);
+    border-radius:36px;
+    padding:11px 9px;
+    box-shadow:0 30px 60px -14px rgba(27,35,51,0.38);
+  }
+  .feature-thumb img{width:100%; border-radius:26px; display:block;}
 
   /* footer */
-  footer{border-top:1px solid var(--line); padding:36px 24px 30px;}
+  footer{
+    background:linear-gradient(135deg, #FBEFDD 0%, #F5D2C0 100%);
+    padding:56px 24px 36px;
+  }
   .footer-inner{max-width:var(--maxw); margin:0 auto;}
   .footer-top{
-    display:flex; align-items:center; justify-content:space-between;
-    flex-wrap:wrap; gap:16px 24px; margin-bottom:22px;
+    display:flex; align-items:flex-start; justify-content:space-between;
+    flex-wrap:wrap; gap:32px 24px;
+    padding-bottom:28px;
   }
-  .footer-brand{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--muted);}
-  .footer-brand img{width:26px; height:26px;}
-  .footer-links{display:flex; gap:20px; flex-wrap:wrap; font-size:13.5px;}
-  .footer-links a{text-decoration:none; color:var(--muted);}
+  .footer-brand{display:flex; align-items:flex-start; gap:18px; max-width:440px;}
+  .footer-brand img{width:46px; height:46px; flex-shrink:0; margin-top:2px;}
+  .footer-brand-text{display:flex; flex-direction:column; gap:10px;}
+  .signature{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:700;
+    font-size:30px; color:var(--ink); letter-spacing:-0.01em;
+  }
+  .footer-contact{font-family:'Quantico', sans-serif; margin:0; font-size:15px; color:#182E4C; line-height:1.6;}
+  .footer-contact a{color:var(--gold); text-decoration:none; font-weight:700;}
+  .footer-contact a:hover{text-decoration:underline;}
+  .footer-links{display:flex; gap:24px; flex-wrap:wrap; font-size:14.5px; margin-top:6px;}
+  .footer-links a{text-decoration:none; color:#182E4C; font-weight:600;}
   .footer-links a:hover{color:var(--gold);}
-  .footer-note{
-    border-top:1px solid var(--line); padding-top:18px;
-    font-size:12px; color:var(--muted); line-height:1.7;
-  }
 
-  @media (max-width:760px){
-    .feature-grid{grid-template-columns:1fr;}
-    .shot-stage{transform:scale(0.85); margin-top:36px;}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; padding-top:48px;}
+    .hero-copy{text-align:center; padding-bottom:12px;}
+    .hero-lockup{justify-content:center;}
+    .hero-tagline{margin-left:auto; margin-right:auto;}
+    .hero-desc{margin-left:auto; margin-right:auto;}
+    .hero-cta{justify-content:center;}
+    .shot-stage{max-width:420px; height:390px; margin:0 auto;}
+    .shot{width:158px;}
+    .shot.left{left:9%;}
+    .shot.center{left:35%;}
+    .shot.right{left:53%;}
+    .badge{width:41px; height:41px;}
+    .badge svg{width:19px; height:19px;}
+  }
+  @media (max-width:640px){
+    .feature-row, .feature-row.reverse{flex-direction:column; align-items:flex-start; text-align:left; gap:18px;}
+    .feature-thumb{width:260px; align-self:center;}
   }
   @media (max-width:520px){
-    .nav-row{padding:16px 18px;}
-    .hero{padding:44px 18px 8px;}
-    .hero h1{font-size:2.3rem;}
-    .shot-stage{transform:scale(0.68); margin-top:20px; height:320px;}
-    .features{padding-top:8px;}
-    .callout-box{padding:28px 22px;}
-    .cta-band{padding:44px 18px;}
+    .nav-row{padding:14px 18px;}
+    .hero h1{font-size:3rem;}
+    .hero-lockup img{width:52px; height:52px;}
+    .hero-tagline{font-size:1rem;}
+    .shot-stage{max-width:320px; height:297px;}
+    .shot{width:120px; border-radius:22px; padding:5px 4px;}
+    .shot::before{width:20px; height:3px;}
+    .shot .screen{border-radius:15px;}
+    .badge{width:31px; height:31px;}
+    .badge svg{width:15px; height:15px;}
+    .features{padding:40px 18px 48px;}
     .footer-top{flex-direction:column; align-items:flex-start;}
   }
 </style>
@@ -201,96 +305,206 @@
 <div id="top"></div>
 
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-lockup">
-      <img src="play-store-icon-512.png" alt="PREP app icon">
-      <h1>PREP</h1>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-lockup">
+        <img src="play-store-icon-512.png" alt="PREP app icon">
+        <h1>PRE<span class="p-accent">P</span></h1>
+      </div>
+      <p class="hero-tagline">Plan. Record. Eat. <span>Progress.</span></p>
+      <p class="hero-desc">PREP is a meal prep app for people who cook their food in batches. Set your goals once. From there you plan the week, split a cooked batch into portions that match your targets, and log the whole thing in one go.</p>
+      <div class="hero-cta">
+        <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.prepapp.app">
+          <img src="google-play-badge.svg" alt="Get it on Google Play">
+        </a>
+        <span class="cta-fine"><span class="trial">14-day free trial</span><span class="price">then €5.99/month</span></span>
+      </div>
     </div>
-    <p class="hero-desc">PREP is a meal prep app for people who cook their food in batches. Set your calories and macros once. From there PREP plans the week, splits a cooked batch into portions that match your targets, and logs the whole thing in one go.</p>
-    <div class="hero-cta">
-      <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.prepapp.app">
-        <img src="google-play-badge.svg" alt="Get it on Google Play">
-      </a>
-      <span class="cta-fine">14 days free, then €5.99 a month</span>
-    </div>
-  </div>
 
-  <div class="shot-stage">
-    <div class="shot left"><div class="screen"><img src="shot-portions.png" alt="PREP portions screen"></div></div>
-    <div class="shot center"><div class="screen"><img src="shot-home.png" alt="PREP home screen"></div></div>
-    <div class="shot right"><div class="screen"><img src="shot-progress.png" alt="PREP progress screen"></div></div>
+    <div class="shot-stage">
+      <div class="shot left"><div class="screen"><img src="shot-portions.png" alt="PREP portions screen"></div></div>
+      <div class="shot right"><div class="screen"><img src="shot-progress.png" alt="PREP progress screen"></div></div>
+      <div class="shot center"><div class="screen"><img src="shot-home.png" alt="PREP home screen"></div></div>
+
+      <div class="badge badge-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div class="badge badge-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <div class="badge badge-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="features">
   <h2>A meal planner, calorie counter <span class="accent">and</span> macro tracker</h2>
-  <p class="lede">One app for losing weight, gaining, or holding steady.</p>
-  <div class="feature-grid">
+  <p class="lede">One app for prepping meals, hitting your goals and achieving results.</p>
+  <div class="feature-list">
 
-    <div class="feature f-gold">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="12" y1="13" x2="12" y2="17"/>
-        </svg>
+    <div class="feature-row f-gold">
+      <div class="feature-content">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <h3>Plan the week</h3>
+        <p>Get your week sorted in a few taps. Pick the days you're prepping for, add the foods or recipes, done.</p>
       </div>
-      <h3>Portions</h3>
-      <p>Cook a batch, weigh it, enter the weight. Your targets are already set, so PREP works out the grams that go in each container straight away.</p>
+      <div class="feature-thumb"><img src="shot-planweek.png" alt="PREP daily log screen"></div>
     </div>
 
-    <div class="feature f-blue">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-        </svg>
+    <div class="feature-row f-blue reverse">
+      <div class="feature-content">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="12" y1="13" x2="12" y2="17"/>
+          </svg>
+        </div>
+        <h3>Portions</h3>
+        <p>Cook a batch, weigh it, enter the number. Your targets are already set, so PREP works out exactly how much goes in each container. If two people are eating from the same batch on different targets, Smart Split divides it proportionally so both land close to their own numbers.</p>
       </div>
-      <h3>Foods and tracking</h3>
-      <p>A curated food library to search, plus your own. Your day is grouped by meal, with calories, protein, carbs and fat against the targets you set.</p>
+      <div class="feature-thumb"><img src="shot-portions.png" alt="PREP portions screen"></div>
     </div>
 
-    <div class="feature f-green">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/>
-          <circle cx="8" cy="6" r="2" fill="#22A559" stroke="none"/><circle cx="16" cy="12" r="2" fill="#22A559" stroke="none"/><circle cx="10" cy="18" r="2" fill="#22A559" stroke="none"/>
-        </svg>
+    <div class="feature-row f-green">
+      <div class="feature-content">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <h3>Recipes</h3>
+        <p>Build your own recipes, with a built-in converter to help when you need it. Pull foods from the curated library or add your own, weigh it, portion it, then log it. Happy with how it turned out? Share it.</p>
       </div>
-      <h3>Progress</h3>
-      <p>Weight and measurements shown as a trend line, so one heavy morning does not look like a setback.</p>
+      <div class="feature-thumb"><img src="shot-recipes.png" alt="PREP recipe screen"></div>
+    </div>
+
+    <div class="feature-row f-gold reverse">
+      <div class="feature-content">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <h3>Tracking</h3>
+        <p>Your day, grouped by meal, calories and macros logged against the targets you set. Search the library, scan a barcode, or add your own. Missed a day? Go back and fill it in.</p>
+      </div>
+      <div class="feature-thumb"><img src="shot-home.png" alt="PREP daily tracking screen"></div>
+    </div>
+
+    <div class="feature-row f-blue">
+      <div class="feature-content">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 15l4-5 3 3 5-7"/>
+          </svg>
+        </div>
+        <h3>Trends</h3>
+        <p>A graph-chart of your progress: body measurements, macros over time, and how consistently you've logged.</p>
+      </div>
+      <div class="feature-thumb"><img src="shot-progress.png" alt="PREP progress screen"></div>
     </div>
 
   </div>
-</section>
-
-<div class="callout">
-  <div class="callout-box">
-    <p>PREP stays deliberately narrow. No step counter, water tracker or workout log, and nothing social. The aim is to do meal prep and tracking properly rather than <strong>a bit of everything.</strong></p>
-  </div>
-</div>
-
-<section class="cta-band">
-  <h2>Get PREP</h2>
-  <p>Install and open it without entering payment details. 14 days free, then €5.99 a month.</p>
-  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.prepapp.app">
-    <img src="google-play-badge.svg" alt="Get it on Google Play">
-  </a>
 </section>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="soleon-logo-clean.png" alt="Soleon Studio">
-        <span>Soleon Studio. PREP stands for Plan, Record, Eat, Progress.</span>
+        <p class="footer-contact">For personal inquiries and general questions, feel free to contact <a href="mailto:soleonstudio@gmail.com">soleonstudio@gmail.com</a></p>
       </div>
       <div class="footer-links">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
-        <a href="mailto:prep.app.contact@gmail.com">Contact</a>
       </div>
     </div>
-    <p class="footer-note">Developed and supported by one person. For bugs, questions or requests, write to prep.app.contact@gmail.com. PREP is intended for general nutrition and fitness use. It does not provide medical advice, diagnosis or treatment.</p>
   </div>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script>
+  (function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // if GSAP failed to load for any reason, do nothing — content is visible by default (no .js-ready class)
+    if (typeof gsap === 'undefined' || reduceMotion) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function initAnimations() {
+      document.documentElement.classList.add('js-ready');
+
+      // feature rows rise and fade in as a direct function of scroll position —
+      // scrubbed to the scrollbar itself, not a fixed-duration timer, so it can
+      // never "finish early" and snap into place regardless of scroll speed
+      gsap.utils.toArray('.feature-row').forEach((row) => {
+        gsap.fromTo(row,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 95%',
+              end: 'top 60%',
+              scrub: 0.3
+            }
+          }
+        );
+      });
+    }
+
+    // wait for every image to actually finish loading before measuring anything —
+    // otherwise ScrollTrigger calculates trigger points against a page that hasn't
+    // settled into its final layout yet, and the reveals fire at the wrong scroll position
+    function whenImagesReady(callback) {
+      const imgs = Array.from(document.images);
+      let remaining = imgs.filter(img => !img.complete).length;
+      if (remaining === 0) { callback(); return; }
+      imgs.forEach(img => {
+        if (!img.complete) {
+          img.addEventListener('load', check);
+          img.addEventListener('error', check);
+        }
+      });
+      function check() {
+        remaining--;
+        if (remaining <= 0) callback();
+      }
+    }
+
+    whenImagesReady(function () {
+      initAnimations();
+
+      // fonts can still swap in after this and reflow text height, shifting every
+      // trigger point below the fold — refresh once more after they're confirmed loaded
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          ScrollTrigger.refresh();
+        });
+      }
+
+      // final safety refresh shortly after everything above, catches any late layout shift
+      setTimeout(function () { ScrollTrigger.refresh(); }, 500);
+    });
+
+    // safety net: if anything above silently fails partway through, force everything visible after 4s
+    setTimeout(() => {
+      document.querySelectorAll('.feature-row').forEach(row => {
+        if (getComputedStyle(row).opacity === '0') {
+          gsap.set(row, { opacity: 1, y: 0 });
+        }
+      });
+    }, 4000);
+  })();
+</script>
 
 </body>
 </html>
